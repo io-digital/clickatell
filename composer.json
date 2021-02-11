@@ -2,7 +2,7 @@
     "name": "io-digital/clickatell",
     "description": "Clickatell notifications driver",
     "keywords": ["laravel", "notifications", "clickatell", "sms"],
-    "homepage": "https://github.com/laravel-notification-channels/clickatell",
+    "homepage": "https://github.com/io-digital/clickatell/clickatell",
     "license": "MIT",
     "authors": [
         {
@@ -33,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NotificationChannels\\Clickatell\\": "src"
+            "IoDigital\\Clickatell\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NotificationChannels\\Clickatell\\Test\\": "tests"
+            "IoDigital\\Clickatell\\Test\\": "tests"
         }
     },
     "config": {
@@ -50,7 +50,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "NotificationChannels\\Clickatell\\ClickatellServiceProvider"
+                "IoDigital\\Clickatell\\ClickatellServiceProvider"
             ]
         }
     }

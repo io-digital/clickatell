@@ -1,11 +1,11 @@
 <?php
 
-namespace NotificationChannels\Clickatell\Test;
+namespace IoDigital\Clickatell\Test;
 
 use Clickatell\Rest;
+use IoDigital\Clickatell\ClickatellClient;
+use IoDigital\Clickatell\Exceptions\CouldNotSendNotification;
 use Mockery;
-use NotificationChannels\Clickatell\ClickatellClient;
-use NotificationChannels\Clickatell\Exceptions\CouldNotSendNotification;
 use PHPUnit\Framework\TestCase;
 
 class ClickatellClientTest extends TestCase

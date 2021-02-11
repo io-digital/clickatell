@@ -1,9 +1,9 @@
 <?php
 
-namespace NotificationChannels\Clickatell\Test;
+namespace IoDigital\Clickatell\Test;
 
 use Clickatell\Rest;
-use NotificationChannels\Clickatell\ClickatellMessage;
+use IoDigital\Clickatell\ClickatellMessage;
 use PHPUnit\Framework\TestCase;
 
 class ClickatellMessageTest extends TestCase

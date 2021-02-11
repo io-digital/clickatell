@@ -1,9 +1,9 @@
 <?php
 
-namespace NotificationChannels\Clickatell;
+namespace IoDigital\Clickatell;
 
 use Illuminate\Notifications\Notification;
-use NotificationChannels\Clickatell\Exceptions\CouldNotSendNotification;
+use IoDigital\Clickatell\Exceptions\CouldNotSendNotification;
 
 class ClickatellChannel
 {
