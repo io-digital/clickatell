@@ -2,7 +2,7 @@
 
 namespace NotificationChannels\Clickatell\Test;
 
-use Clickatell\Api\ClickatellHttp;
+use Clickatell\Rest;
 use Mockery;
 use NotificationChannels\Clickatell\ClickatellClient;
 use NotificationChannels\Clickatell\Exceptions\CouldNotSendNotification;
@@ -13,15 +13,14 @@ class ClickatellClientTest extends TestCase
     /** @var ClickatellClient */
     private $clickatellClient;
 
-    /** @var ClickatellHttp */
-    private $httpClient;
+    /** @var Rest */
+    private $rest;
 
     public function setUp(): void
     {
         parent::setUp();
-
-        $this->httpClient = Mockery::mock(ClickatellHttp::class);
-        $this->clickatellClient = new ClickatellClient($this->httpClient);
+        $this->rest = \Mockery::mock(Rest::class);
+        $this->clickatellClient = new ClickatellClient($this->rest);
     }
 
     public function tearDown(): void
@@ -71,7 +70,7 @@ class ClickatellClientTest extends TestCase
         $to = ['27848118111'];
         $message = 'Hi there I am a message';
 
-        $this->httpClient->shouldReceive('sendMessage')
+        $this->rest->shouldReceive('sendMessage')
             ->once()
             ->with($to, $message)
             ->andReturn($this->getStubSuccessResponse($to));
@@ -88,7 +87,7 @@ class ClickatellClientTest extends TestCase
 
         $message = 'Hi there I am a message to multiple receivers';
 
-        $this->httpClient->shouldReceive('sendMessage')
+        $this->rest->shouldReceive('sendMessage')
             ->once()
             ->with($to, $message)
             ->andReturn($this->getStubSuccessResponse($to));
@@ -105,7 +104,7 @@ class ClickatellClientTest extends TestCase
         $to = ['27848118']; // Bad number
         $message = 'Hi there I am a message that is bound to fail';
 
-        $this->httpClient->shouldReceive('sendMessage')
+        $this->rest->shouldReceive('sendMessage')
             ->once()
             ->with($to, $message)
             ->andReturn($this->getStubErrorResponse($to));
