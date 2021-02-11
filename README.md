@@ -101,7 +101,7 @@ $ composer test
 
 ## Security
 
-If you discover any security related issues, please email hello@etiennemarais.co.za instead of using the issue tracker.
+If you discover any security related issues, please email contact@io.co.za instead of using the issue tracker.
 
 ## Contributing
 
