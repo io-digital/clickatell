@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\Clickatell;
+namespace IoDigital\Clickatell;
 
 use Clickatell\Rest;
 use Illuminate\Support\ServiceProvider;

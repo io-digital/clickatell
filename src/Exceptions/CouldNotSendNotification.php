@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\Clickatell\Exceptions;
+namespace IoDigital\Clickatell\Exceptions;
 
 class CouldNotSendNotification extends \Exception
 {
