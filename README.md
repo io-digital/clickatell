@@ -31,7 +31,7 @@ This package makes it easy to send notifications using [clickatell.com](https://
 You can install the package via composer:
 
 ```bash
-composer require laravel-notification-channels/clickatell
+composer require io-digital/clickatell
 ```
 
 ### Setting up the clickatell service
@@ -42,9 +42,7 @@ Add your Clickatell user, password and api identifier  to your `config/services.
 // config/services.php
 ...
 'clickatell' => [
-    'user'  => env('CLICKATELL_USER'),
-    'pass' => env('CLICKATELL_PASS'),
-    'api_id' => env('CLICKATELL_API_ID'),
+    'api_key' => env('CLICKATELL_API_KEY'),
 ],
 ...
 ```

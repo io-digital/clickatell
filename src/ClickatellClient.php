@@ -2,7 +2,7 @@
 
 namespace NotificationChannels\Clickatell;
 
-use Clickatell\Api\ClickatellHttp;
+use Clickatell\Rest;
 use NotificationChannels\Clickatell\Exceptions\CouldNotSendNotification;
 use stdClass;
 
@@ -20,14 +20,14 @@ class ClickatellClient
     const INTERNAL_ERROR = 901;
 
     /**
-     * @var ClickatellHttp
+     * @var Rest
      */
     private $clickatell;
 
     /**
-     * @param ClickatellHttp $clickatellHttp
+     * @param Rest $clickatellHttp
      */
-    public function __construct(ClickatellHttp $clickatellHttp)
+    public function __construct(Rest $clickatellHttp)
     {
         $this->clickatell = $clickatellHttp;
     }
