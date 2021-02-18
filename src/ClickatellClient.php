@@ -44,7 +44,7 @@ class ClickatellClient
                 'to' => $to,
                 'content' => $message,
             ],
-        ])->getBody()->getContents;
+        ])->getBody()->getContents();
 
         $response = json_decode($response, true);
 
