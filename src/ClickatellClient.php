@@ -38,17 +38,17 @@ class ClickatellClient
      */
     public function send(array $to, $message)
     {
-        $to = collect($to)->toArray();
-
         $response = $this->client->request('GET', 'https://platform.clickatell.com/messages/http/send', [
             'query' => [
                 'apiKey' => $this->apiKey,
                 'to' => $to,
                 'content' => $message,
             ],
-        ])->getBody();
+        ])->getBody()->getContents;
 
-        $this->handleProviderResponses($response);
+        $response = json_decode($response, true);
+
+        return $this->handleProviderResponses($response);
     }
 
     /**
