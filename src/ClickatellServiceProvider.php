@@ -2,7 +2,7 @@
 
 namespace IoDigital\Clickatell;
 
-use Clickatell\Rest;
+use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 
 class ClickatellServiceProvider extends ServiceProvider
@@ -15,9 +15,9 @@ class ClickatellServiceProvider extends ServiceProvider
         $this->app->when(ClickatellChannel::class)
             ->needs(ClickatellClient::class)
             ->give(function () {
-                $config = config('services.clickatell');
+                $apiKey = config('services.clickatell.api_key');
 
-                return new Rest($config['api_key']);
+                return new ClickatellClient(new Client(), $apiKey);
             });
     }
 }

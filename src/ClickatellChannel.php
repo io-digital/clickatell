@@ -2,7 +2,6 @@
 
 namespace IoDigital\Clickatell;
 
-use Clickatell\Rest;
 use Illuminate\Notifications\Notification;
 use IoDigital\Clickatell\Exceptions\CouldNotSendNotification;
 
@@ -12,9 +11,9 @@ class ClickatellChannel
     protected $clickatell;
 
     /**
-     * @param Rest $clickatell
+     * @param ClickatellClient $clickatell
      */
-    public function __construct(Rest $clickatell)
+    public function __construct(ClickatellClient $clickatell)
     {
         $this->clickatell = $clickatell;
     }

@@ -2,7 +2,7 @@
 
 namespace IoDigital\Clickatell;
 
-use Clickatell\Rest;
+use GuzzleHttp\Client;
 use IoDigital\Clickatell\Exceptions\CouldNotSendNotification;
 use stdClass;
 
@@ -19,17 +19,17 @@ class ClickatellClient
     const NO_CREDIT_LEFT = 301;
     const INTERNAL_ERROR = 901;
 
-    /**
-     * @var Rest
-     */
-    private $clickatell;
+    protected $client;
+    protected $apiKey;
 
     /**
-     * @param Rest $clickatellHttp
+     * @param Client $client
+     * @param        $apiKey
      */
-    public function __construct(Rest $clickatellHttp)
+    public function __construct(Client $client, $apiKey)
     {
-        $this->clickatell = $clickatellHttp;
+        $this->client = $client;
+        $this->apiKey = $apiKey;
     }
 
     /**
@@ -40,7 +40,13 @@ class ClickatellClient
     {
         $to = collect($to)->toArray();
 
-        $response = $this->clickatell->sendMessage($to, $message);
+        $response = $this->client->request('GET', 'https://platform.clickatell.com/messages/http/send', [
+            'query' => [
+                'api_key' => $this->apiKey,
+                'to' => $to,
+                'content' => $message,
+            ],
+        ])->getBody();
 
         $this->handleProviderResponses($response);
     }
