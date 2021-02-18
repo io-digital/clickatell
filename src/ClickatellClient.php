@@ -57,12 +57,12 @@ class ClickatellClient
      */
     protected function handleProviderResponses(array $responses)
     {
-        collect($responses)->each(function (stdClass $response) {
-            $errorCode = (int) $response->errorCode;
+        collect($responses['messages'])->each(function ($response) {
+            $errorCode = (int) $response['errorCode'];
 
             if ($errorCode != self::SUCCESSFUL_SEND) {
                 throw CouldNotSendNotification::serviceRespondedWithAnError(
-                    (string) $response->error,
+                    $response['error'],
                     $errorCode
                 );
             }
