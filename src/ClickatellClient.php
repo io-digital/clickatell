@@ -36,7 +36,7 @@ class ClickatellClient
      * @param array $to String or Array of numbers
      * @param string $message
      */
-    public function send(array $to, $message)
+    public function send($to, $message)
     {
         $response = $this->client->request('GET', 'https://platform.clickatell.com/messages/http/send', [
             'query' => [
