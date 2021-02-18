@@ -42,7 +42,7 @@ class ClickatellClient
 
         $response = $this->client->request('GET', 'https://platform.clickatell.com/messages/http/send', [
             'query' => [
-                'api_key' => $this->apiKey,
+                'apiKey' => $this->apiKey,
                 'to' => $to,
                 'content' => $message,
             ],
