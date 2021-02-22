@@ -67,8 +67,8 @@ You can use the channel in your `via()` method inside the notification:
 
 ```php
 use Illuminate\Notifications\Notification;
-use NotificationChannels\Clickatell\ClickatellMessage;
-use NotificationChannels\Clickatell\ClickatellChannel;
+use IoDigital\Clickatell\ClickatellMessage;
+use IoDigital\Clickatell\ClickatellChannel;
 
 class AccountApproved extends Notification
 {
