@@ -44,7 +44,7 @@ Add your Clickatell user, password and api identifier  to your `config/services.
 
 ## Usage
 
-**Number format: 27840000000**
+**Number format: +27840000000**
 
 To route Clickatell notifications to the proper phone number, define a ```routeNotificationForClickatell```  method on your notifiable entity:
 ```php
@@ -87,9 +87,12 @@ class AccountApproved extends Notification
 }
 ```
 
-### Available methods
+```php
+Notification::route('clickatell', 'YOUR E164 NUMBER')
+        ->notifyNow(new \App\Notifications\MyNotification($model));
+```
 
-TODO
+
 
 ## Changelog
 
